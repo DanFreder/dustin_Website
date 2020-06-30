@@ -1,0 +1,38 @@
+/*********************************************
+
+Here is a description of any special CSS used.
+In this case it's just padding and margin to 0
+so the canvas is flush with the top left corner.
+
+**********************************************/
+body {
+  margin-left: 40px;
+  margin-top: -40px;
+}
+
+canvas {
+  display: block;
+}
+
+/* 'Dustin Finer' large corner */
+h1 {
+  font-family: 'Cedarville Cursive', cursive;
+  font-size: 3.5em;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Links */
+h2 {
+  font-family: 'Reenie Beanie', cursive;;
+  font-size: 3em;
+  color: Black;
+}
+
+/* DF about text */
+h3 {
+  font-family: 'Open Sans', sans-serif;;
+  text-align: left;
+  font-size: 1.4em;
+  color: Black;
+}
