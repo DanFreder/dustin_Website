@@ -4,7 +4,7 @@ df website homepage
 
 "use strict";
 
-var bgScale = .99;
+var bgScale = .9999999999;
 var headScale;
 var bgImg;
 var closedImg;
@@ -16,13 +16,16 @@ var tx;
 var ty;
 var dustinX;
 var dustinY;
-var headSpeedX = 3;
-var headSpeedY = 2;
+var dustinX2;
+var dustinY2;
+var headSpeed = 1;
+var xNoiseVal = 1.5;
+var yNoiseVal = 1.25;
 
 function preload() {
-  bgImg = loadImage('assets/images/background.jpg');
-  closedImg = loadImage('assets/images/eyesClosed2.png');
-  openImg = loadImage('assets/images/eyesOpen2.png');
+  bgImg = loadImage('assets/images/backgroundMin.jpeg');
+  closedImg = loadImage('assets/images/eyesClosedMin.png');
+  openImg = loadImage('assets/images/eyesOpenMin.png');
 }
 
 function setup() {
@@ -39,27 +42,33 @@ function setup() {
   image(bgImg, width / 2, height / 2, bgScale * width, bgScale * bgImg.height * width / bgImg.width);
 
   //preset values for head placement + movement
-  tx = random(-width / 2, width / 2);
-  ty = random(-height / 2, height / 2);
   dustinX = width / 2;
   dustinY = height / 2;
+  tx = random(0, width);
+  ty = random(0, height);
 }
 
 function draw() {
-  headScale = bgScale * .055;
   if (pressed === 0 || pressed === 1) {
     image(closedImg, dustinX, dustinY, bgScale * width, bgScale * bgImg.height * width / bgImg.width);
   } else {
     image(openImg, dustinX + 33, dustinY - 18, bgScale * width, bgScale * bgImg.height * width / bgImg.width);
   }
-  if (frameCount > 100 && pressed > 0) {
-    // Calculate the distance between dustin's Head and the mouse
-    var distX = mouseX - dustinX - (bgImg.width * .07);
-    var distY = mouseY - dustinY + (bgImg.height * .05);
-    // Add 1/10th of that distance to the dustin's location
-    dustinX = distX / 10 + dustinX;
-    dustinY = distY / 10 + dustinY;
+  if (frameCount > 100 && frameCount < 250) {
+    dustinX -= xNoiseVal * noise(tx);
+    dustinY -= yNoiseVal * noise(ty);
+  } else if (frameCount > 250 && frameCount < 350) {
+    dustinX -= xNoiseVal * noise(tx);
+    dustinY += yNoiseVal * noise(ty);
+  } else if (frameCount > 350 && frameCount < 450) {
+    dustinX -= xNoiseVal * noise(tx);
+    dustinY -= yNoiseVal * noise(ty);
+  } else {
+    dustinX -= xNoiseVal * noise(tx);
+    dustinY += yNoiseVal * noise(ty);
   }
+  tx += headSpeed;
+  ty += headSpeed;
 }
 
 function mousePressed() {

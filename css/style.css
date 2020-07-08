@@ -16,7 +16,7 @@ canvas {
 
 /* 'Dustin Finer' large corner */
 h1 {
-  font-family: 'Cedarville Cursive', cursive;
+font-family: 'Pinyon Script', cursive;
   font-size: 3.5em;
   font-weight: bold;
   font-style: italic;
@@ -24,14 +24,14 @@ h1 {
 
 /* Links */
 h2 {
-  font-family: 'Reenie Beanie', cursive;;
+font-family: 'Pinyon Script', cursive;
   font-size: 3em;
   color: Black;
 }
 
 /* DF about text */
 h3 {
-  font-family: 'Open Sans', sans-serif;;
+  font-family: 'Pinyon Script', cursive;
   text-align: left;
   font-size: 1.4em;
   color: Black;
