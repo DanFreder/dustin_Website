@@ -1,38 +1,53 @@
 /*********************************************
-
-Here is a description of any special CSS used.
-In this case it's just padding and margin to 0
-so the canvas is flush with the top left corner.
-
+Dustin Site CSS
 **********************************************/
 body {
-  margin-left: 40px;
-  margin-top: -40px;
+  margin-left: 50px;
+  margin-top: 60px;
 }
 
 canvas {
-  display: block;
+  display: flex;
 }
 
-/* 'Dustin Finer' large corner */
+/* 'Dustin Finer' large Cursive */
 h1 {
-font-family: 'Pinyon Script', cursive;
-  font-size: 3.5em;
-  font-weight: bold;
-  font-style: italic;
+font-family: 'Nunito', sans-serif;
+  font-size: 100px;
+   line-height: 50px;
+  align-items: flex-end;
 }
 
-/* Links */
+/* Homepage Links */
 h2 {
-font-family: 'Pinyon Script', cursive;
-  font-size: 3em;
+font-family: 'Nunito', sans-serif;
+  font-size: 60px;
+   line-height: 30px;
   color: Black;
+  justify-content: flex-start;
 }
 
-/* DF about text */
+/* Music Page Text */
 h3 {
-  font-family: 'Pinyon Script', cursive;
-  text-align: left;
-  font-size: 1.4em;
+font-family: 'Nunito', sans-serif;
+  font-size: 30px;
   color: Black;
+  justify-content: flex-start;
+}
+
+/* About Page Text */
+h4 {
+font-family: 'Nunito', sans-serif;
+  font-size: 25px;
+  color: Black;
+  justify-content: flex-start;
+}
+
+/* Contact Page Text */
+h5 {
+font-family: 'Nunito', sans-serif;
+  font-size: 50px;
+  line-height: 10px;
+  color: Black;
+  justify-content: flex-start;
 }
