@@ -10,12 +10,14 @@ var bgImg;
 var closedImg;
 var openImg;
 var pressed = 0;
-var growScale = 0;
+var growScale = .051;
+var activeImg;
 
 function preload() {
   bgImg = loadImage('assets/images/backgroundMin.jpeg');
   closedImg = loadImage('assets/images/eyesClosed.png');
   openImg = loadImage('assets/images/eyesOpen.png');
+  activeImg = openImg;
 }
 
 function setup() {
@@ -33,16 +35,23 @@ function setup() {
 }
 
 function draw() {
+  noCursor();
+  if (pressed !== 0) {
+    image(activeImg, mouseX, mouseY, growScale * width, growScale * openImg.height * width / openImg.width);
+  }
   if (mouseIsPressed) {
-    if (pressed === 1) {
-      growScale += 1;
-      image(closedImg, mouseX, mouseY, growScale, growScale);
-      pressed = 0;
-    } else {
-      growScale += 1;
-      image(openImg, mouseX, mouseY, growScale, growScale);
-      pressed = 1;
-    }
+    growScale += .001;
+  }
+  console.log(pressed);
+}
+
+function mousePressed() {
+  if (pressed === 1) {
+    activeImg = closedImg;
+    pressed = 2;
+  } else {
+    activeImg = openImg;
+    pressed = 1;
   }
 }
 
