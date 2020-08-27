@@ -10,7 +10,7 @@ var bgImg;
 var closedImg;
 var openImg;
 var pressed = 0;
-var growScale = .051;
+var growScale = .053;
 var activeImg;
 
 function preload() {
@@ -39,10 +39,11 @@ function draw() {
   if (pressed !== 0) {
     image(activeImg, mouseX, mouseY, growScale * width, growScale * openImg.height * width / openImg.width);
   }
-  if (mouseIsPressed) {
-    growScale += .001;
+  if (frameCount >= 100) {
+    if (mouseIsPressed) {
+      growScale += .0005;
+    }
   }
-  console.log(pressed);
 }
 
 function mousePressed() {
