@@ -5,12 +5,11 @@ df website homepage
 "use strict";
 
 var bgScale = .9999999999;
-var headScale;
 var bgImg;
 var closedImg;
 var openImg;
 var pressed = 0;
-var growScale = .053;
+var growScale = .013;
 var activeImg;
 
 function preload() {
@@ -36,7 +35,7 @@ function setup() {
 
 function draw() {
   noCursor();
-  if (pressed !== 0) {
+  if (frameCount >= 50) {
     image(activeImg, mouseX, mouseY, growScale * width, growScale * openImg.height * width / openImg.width);
   }
   if (frameCount >= 100) {
